@@ -1,0 +1,147 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfx7146mhhgj6"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_xulj3"]
+[ext_resource type="Texture2D" uid="uid://de5pad6cb3w1p" path="res://Assets/Background/8/2304x1296.png" id="2_4mx72"]
+[ext_resource type="FontFile" uid="uid://b61xlpinr5u7a" path="res://Assets/04B_30__.TTF" id="3_wfbg3"]
+[ext_resource type="AudioStream" uid="uid://bnddlibcdclel" path="res://Assets/Music/gong-xi-fa-cai-chinese-new-year-music-280691.mp3" id="4_jku5y"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hpfhd"]
+texture = ExtResource("2_4mx72")
+modulate_color = Color(0.454524, 0.454524, 0.454524, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a6vxd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbctt"]
+bg_color = Color(0.395371, 0.501934, 0.726286, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3xvy"]
+bg_color = Color(0.293778, 0.391832, 0.602192, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpp0y"]
+bg_color = Color(0.573703, 0.663914, 0.848646, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xulj3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jku5y")
+autoplay = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_hpfhd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -38.0
+offset_right = 150.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_wfbg3")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a6vxd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qbctt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k3xvy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rpp0y")
+text = "Start Game"
+
+[node name="settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_wfbg3")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a6vxd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qbctt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k3xvy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rpp0y")
+text = "Settings
+"
+
+[node name="exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_wfbg3")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a6vxd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qbctt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k3xvy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rpp0y")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -146.0
+offset_top = 163.0
+offset_right = 140.0
+offset_bottom = 284.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.782284, 0.592136, 0.577829, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_fonts/font = ExtResource("3_wfbg3")
+theme_override_font_sizes/font_size = 70
+text = "Warriors of the Zodiac"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

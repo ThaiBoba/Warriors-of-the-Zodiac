@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://romi488mv8xi"]
+
+[ext_resource type="Texture2D" uid="uid://chypvnggps4co" path="res://Assets/Background/4/1.png" id="1_ec6vi"]
+[ext_resource type="Texture2D" uid="uid://2jbtv5u5h1he" path="res://Assets/Background/4/2.png" id="2_bc37l"]
+[ext_resource type="Texture2D" uid="uid://bht3j3p684ba6" path="res://Assets/Background/4/3.png" id="3_8ff0k"]
+[ext_resource type="Texture2D" uid="uid://dwgad0o0k8fcd" path="res://Assets/Background/4/4.png" id="4_pyetv"]
+[ext_resource type="Texture2D" uid="uid://dc2t7pn6lxjww" path="res://Assets/Background/4/5.png" id="5_eu4mu"]
+[ext_resource type="Texture2D" uid="uid://65oyxjvbhy2g" path="res://Assets/Background/4/6.png" id="6_j731r"]
+[ext_resource type="Texture2D" uid="uid://dmx7erfrgvb0a" path="res://Assets/Background/4/7.png" id="7_inje2"]
+[ext_resource type="PackedScene" uid="uid://dubpp44qd45c4" path="res://Scenes/player.tscn" id="8_qko44"]
+[ext_resource type="PackedScene" uid="uid://c4emn3307xngy" path="res://Scenes/pause_menu.tscn" id="9_44oyg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y33hk"]
+distance = -132.0
+
+[node name="Level" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("8_qko44")]
+position = Vector2(-280, 47)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_44oyg")]
+
+[node name="Woodland Meeting" type="ParallaxBackground" parent="."]
+
+[node name="Layer1" type="ParallaxLayer" parent="Woodland Meeting"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Woodland Meeting/Layer1"]
+texture = ExtResource("1_ec6vi")
+
+[node name="Layer2" type="ParallaxLayer" parent="Woodland Meeting"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Woodland Meeting/Layer2"]
+texture = ExtResource("2_bc37l")
+
+[node name="Layer3" type="ParallaxLayer" parent="Woodland Meeting"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Woodland Meeting/Layer3"]
+texture = ExtResource("3_8ff0k")
+
+[node name="Layer4" type="ParallaxLayer" parent="Woodland Meeting"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Woodland Meeting/Layer4"]
+texture = ExtResource("4_pyetv")
+
+[node name="Layer5" type="ParallaxLayer" parent="Woodland Meeting"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Woodland Meeting/Layer5"]
+texture = ExtResource("5_eu4mu")
+
+[node name="Layer6" type="ParallaxLayer" parent="Woodland Meeting"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Woodland Meeting/Layer6"]
+texture = ExtResource("6_j731r")
+
+[node name="Layer7" type="ParallaxLayer" parent="Woodland Meeting"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Woodland Meeting/Layer7"]
+position = Vector2(-1.03116e-05, 0)
+scale = Vector2(1.11111, 1.11111)
+texture = ExtResource("7_inje2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_y33hk")
