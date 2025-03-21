@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1n4s4strtkcn"]
+
+[ext_resource type="Texture2D" uid="uid://chypvnggps4co" path="res://Assets/Background/4/1.png" id="1_vsyt2"]
+[ext_resource type="Texture2D" uid="uid://2jbtv5u5h1he" path="res://Assets/Background/4/2.png" id="2_12usd"]
+[ext_resource type="Texture2D" uid="uid://bht3j3p684ba6" path="res://Assets/Background/4/3.png" id="3_lgjyo"]
+[ext_resource type="Texture2D" uid="uid://dwgad0o0k8fcd" path="res://Assets/Background/4/4.png" id="4_ikbkt"]
+[ext_resource type="Texture2D" uid="uid://dc2t7pn6lxjww" path="res://Assets/Background/4/5.png" id="5_5ylu7"]
+[ext_resource type="Texture2D" uid="uid://65oyxjvbhy2g" path="res://Assets/Background/4/6.png" id="6_hudxr"]
+[ext_resource type="Texture2D" uid="uid://dmx7erfrgvb0a" path="res://Assets/Background/4/7.png" id="7_uyy1d"]
+
+[node name="Woodland Meeting" type="ParallaxBackground"]
+
+[node name="Layer1" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer1"]
+texture = ExtResource("1_vsyt2")
+
+[node name="Layer2" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer2"]
+texture = ExtResource("2_12usd")
+
+[node name="Layer3" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer3"]
+texture = ExtResource("3_lgjyo")
+
+[node name="Layer4" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer4"]
+texture = ExtResource("4_ikbkt")
+
+[node name="Layer5" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer5"]
+texture = ExtResource("5_5ylu7")
+
+[node name="Layer6" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer6"]
+texture = ExtResource("6_hudxr")
+
+[node name="Layer7" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer7"]
+position = Vector2(-1.03116e-05, 0)
+scale = Vector2(1.11111, 1.11111)
+texture = ExtResource("7_uyy1d")
