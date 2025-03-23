@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://c4emn3307xngy"]
 
-[ext_resource type="Script" path="res://Scripts/State Scripts/pause_menu.gd" id="1_ly2e1"]
+[ext_resource type="Script" path="res://Scripts/Menu scripts/pause_menu.gd" id="1_ly2e1"]
 [ext_resource type="Shader" path="res://Scripts/pause_menu.gdshader" id="2_0odea"]
 [ext_resource type="FontFile" uid="uid://ijb6expjt7ir" path="res://Assets/upheavtt.ttf" id="3_ggyr1"]
 

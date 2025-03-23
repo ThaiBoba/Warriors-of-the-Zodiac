@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cfx7146mhhgj6"]
 
-[ext_resource type="Script" path="res://Scripts/State Scripts/main_menu.gd" id="1_xulj3"]
+[ext_resource type="Script" path="res://Scripts/Menu scripts/main_menu.gd" id="1_xulj3"]
 [ext_resource type="Texture2D" uid="uid://de5pad6cb3w1p" path="res://Assets/Background/8/2304x1296.png" id="2_4mx72"]
 [ext_resource type="FontFile" uid="uid://b61xlpinr5u7a" path="res://Assets/04B_30__.TTF" id="3_wfbg3"]
 [ext_resource type="AudioStream" uid="uid://bnddlibcdclel" path="res://Assets/Music/gong-xi-fa-cai-chinese-new-year-music-280691.mp3" id="4_jku5y"]

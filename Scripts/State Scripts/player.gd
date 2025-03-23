@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var animation: AnimationPlayer = $Animation
 @onready var sprite: AnimatedSprite2D = $Sprite
 
+
 func _ready(): state_machine.init()
 
 func _process(delta): state_machine.process_frame(delta)

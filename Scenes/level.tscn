@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b1n4s4strtkcn" path="res://Scenes/background scenes/woodland_meeting.tscn" id="3_q87w6"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="4_7bu5b"]
 [ext_resource type="Script" path="res://Scripts/hurt_box.gd" id="4_ph1nf"]
-[ext_resource type="PackedScene" uid="uid://dubpp44qd45c4" path="res://Scenes/player.tscn" id="8_qko44"]
+[ext_resource type="PackedScene" uid="uid://dubpp44qd45c4" path="res://Scenes/kitsune.tscn" id="8_qko44"]
 [ext_resource type="PackedScene" uid="uid://c4emn3307xngy" path="res://Scenes/pause_menu.tscn" id="9_44oyg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y33hk"]
@@ -14,12 +14,16 @@ size = Vector2(52, 139)
 
 [node name="Level" type="Node2D"]
 
-[node name="player" parent="." instance=ExtResource("8_qko44")]
-position = Vector2(-281, 2)
+[node name="kitsune" parent="." instance=ExtResource("8_qko44")]
+position = Vector2(-257, 63)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_44oyg")]
+offset_left = 191.0
+offset_top = 272.0
+offset_right = 191.0
+offset_bottom = 272.0
 
 [node name="Woodland Meeting" parent="." instance=ExtResource("3_q87w6")]
 
@@ -33,8 +37,9 @@ script = ExtResource("4_7bu5b")
 shape = SubResource("WorldBoundaryShape2D_y33hk")
 
 [node name="HurtBox" type="Area2D" parent="."]
+monitorable = false
 script = ExtResource("4_ph1nf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-168, 72)
+position = Vector2(59, 61)
 shape = SubResource("RectangleShape2D_hil0t")

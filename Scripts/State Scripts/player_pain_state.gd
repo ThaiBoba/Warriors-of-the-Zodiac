@@ -6,9 +6,12 @@ extends PlayerState
 var has_pained: bool
 
 func enter() -> void:
+	print("Entered PlayerPainState")
 	has_pained = false
 	player.animation.play(pain_animation)
-	player.animation.animation_finished.connect(func(_anim): has_pained = true)
+	player.animation.animation_finished.connect(func(_anim): 
+		print("Pain animation finished") 
+		has_pained = true)
 
 func process_input(event: InputEvent) -> State:
 	super(event)

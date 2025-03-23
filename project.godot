@@ -33,6 +33,8 @@ project/assembly_name="Warriors of the Zodiac"
 [global_group]
 
 Camera=""
+Kitsune=""
+Rat=""
 
 [input]
 
