@@ -1,22 +1,22 @@
 [gd_scene load_steps=75 format=3 uid="uid://dubpp44qd45c4"]
 
-[ext_resource type="Script" path="res://Scripts/State Scripts/player.gd" id="1_gkh2o"]
+[ext_resource type="Script" uid="uid://dydrnwfjogdh2" path="res://Scripts/State Scripts/player.gd" id="1_gkh2o"]
 [ext_resource type="Texture2D" uid="uid://d4ib1tstiqeo6" path="res://Assets/Characters/Kitsune/Idle.png" id="1_l3beo"]
 [ext_resource type="Texture2D" uid="uid://83racgrspq55" path="res://Assets/Characters/Kitsune/Attack_1.png" id="2_jvjbb"]
 [ext_resource type="Texture2D" uid="uid://f6ryqkrnsuns" path="res://Assets/Characters/Kitsune/Jump.png" id="2_qrs50"]
 [ext_resource type="Texture2D" uid="uid://dxjekvl0dclot" path="res://Assets/Characters/Kitsune/Walk.png" id="3_4uwlw"]
 [ext_resource type="Texture2D" uid="uid://deanvqkn1a0lu" path="res://Assets/Characters/Kitsune/Attack_3.png" id="3_r6qwr"]
-[ext_resource type="Script" path="res://Scripts/State Scripts/state_machine.gd" id="5_rf1ct"]
+[ext_resource type="Script" uid="uid://dfx7s6su8ulgh" path="res://Scripts/State Scripts/state_machine.gd" id="5_rf1ct"]
 [ext_resource type="Texture2D" uid="uid://1h005s0y0n25" path="res://Assets/Characters/Kitsune/Hurt.png" id="5_ti0fx"]
-[ext_resource type="Script" path="res://Scripts/State Scripts/idle.gd" id="6_8tm5q"]
-[ext_resource type="Script" path="res://Scripts/State Scripts/walk.gd" id="7_1vmoy"]
-[ext_resource type="Script" path="res://Scripts/State Scripts/jump.gd" id="9_vb3xs"]
-[ext_resource type="Script" path="res://Scripts/State Scripts/fall.gd" id="10_1otfm"]
-[ext_resource type="Script" path="res://Scripts/State Scripts/attack_1.gd" id="12_mtu72"]
-[ext_resource type="Script" path="res://Scripts/State Scripts/attack_2.gd" id="13_1yikn"]
-[ext_resource type="Script" path="res://Scripts/hit_box.gd" id="13_tni2c"]
-[ext_resource type="Script" path="res://Scripts/State Scripts/player_pain_state.gd" id="16_u2uuu"]
-[ext_resource type="Script" path="res://Scripts/State Scripts/player_hurt_box.gd" id="17_q5j35"]
+[ext_resource type="Script" uid="uid://5rx8k1ehsj77" path="res://Scripts/State Scripts/idle.gd" id="6_8tm5q"]
+[ext_resource type="Script" uid="uid://b4m3jg33egdwn" path="res://Scripts/State Scripts/walk.gd" id="7_1vmoy"]
+[ext_resource type="Script" uid="uid://5wyygshvfjos" path="res://Scripts/State Scripts/jump.gd" id="9_vb3xs"]
+[ext_resource type="Script" uid="uid://2hg2iqk4gupf" path="res://Scripts/State Scripts/fall.gd" id="10_1otfm"]
+[ext_resource type="Script" uid="uid://0c7meslly0y8" path="res://Scripts/State Scripts/attack_1.gd" id="12_mtu72"]
+[ext_resource type="Script" uid="uid://dtbqftbdf4llp" path="res://Scripts/State Scripts/attack_2.gd" id="13_1yikn"]
+[ext_resource type="Script" uid="uid://0051srgqr0bm" path="res://Scripts/hit_box.gd" id="13_tni2c"]
+[ext_resource type="Script" uid="uid://bavadghytrreo" path="res://Scripts/State Scripts/player_pain_state.gd" id="16_u2uuu"]
+[ext_resource type="Script" uid="uid://wum0fy0ouchv" path="res://Scripts/State Scripts/player_hurt_box.gd" id="17_q5j35"]
 [ext_resource type="PackedScene" uid="uid://cbmnvxkvhf4mt" path="res://HealthBar.tscn" id="18_phtg2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rbef5"]
@@ -630,14 +630,14 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v2d7b"]
 _data = {
-"Attack1": SubResource("Animation_hnvjr"),
-"Attack2": SubResource("Animation_nlb8g"),
-"Fall": SubResource("Animation_l6m8i"),
-"Idle": SubResource("Animation_n8blf"),
-"Jump": SubResource("Animation_kn4ne"),
-"Pain": SubResource("Animation_m02wh"),
-"RESET": SubResource("Animation_oumen"),
-"Walk": SubResource("Animation_wc85c")
+&"Attack1": SubResource("Animation_hnvjr"),
+&"Attack2": SubResource("Animation_nlb8g"),
+&"Fall": SubResource("Animation_l6m8i"),
+&"Idle": SubResource("Animation_n8blf"),
+&"Jump": SubResource("Animation_kn4ne"),
+&"Pain": SubResource("Animation_m02wh"),
+&"RESET": SubResource("Animation_oumen"),
+&"Walk": SubResource("Animation_wc85c")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6cnwu"]
@@ -659,7 +659,7 @@ animation = &"idle"
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_v2d7b")
+&"": SubResource("AnimationLibrary_v2d7b")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

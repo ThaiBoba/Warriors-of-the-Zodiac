@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dsh48muue3lr3"]
 
-[ext_resource type="Script" path="res://Scripts/settings.gd" id="1_sufkd"]
+[ext_resource type="Script" uid="uid://dkiij8trp2qko" path="res://Scripts/settings.gd" id="1_sufkd"]
 [ext_resource type="FontFile" uid="uid://ijb6expjt7ir" path="res://Assets/upheavtt.ttf" id="2_dnin5"]
 [ext_resource type="AudioStream" uid="uid://bhplxpnuhtbgp" path="res://Assets/Music/his-touch-13032.mp3" id="3_wi1u2"]
 
@@ -72,8 +72,8 @@ grow_vertical = 0
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_dnin5")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4s2mc")
@@ -88,8 +88,8 @@ text = "Back To Game
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_dnin5")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4s2mc")
@@ -142,6 +142,7 @@ layout_mode = 2
 selected = 2
 item_count = 3
 popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
 popup/item_1/text = "1600x900"
 popup/item_1/id = 1
 popup/item_2/text = "1280x720"

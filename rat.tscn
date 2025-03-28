@@ -1,7 +1,7 @@
 [gd_scene load_steps=62 format=3 uid="uid://4oshoh7h3yrm"]
 
 [ext_resource type="Texture2D" uid="uid://cevjup2qvy2hy" path="res://Assets/Characters/Kunoichi/Attack_1.png" id="1_iymnf"]
-[ext_resource type="Script" path="res://Scripts/State Scripts/player.gd" id="1_smybj"]
+[ext_resource type="Script" uid="uid://dydrnwfjogdh2" path="res://Scripts/State Scripts/player.gd" id="1_smybj"]
 [ext_resource type="Texture2D" uid="uid://u8iaus5vx7ui" path="res://Assets/Characters/Kunoichi/Idle.png" id="1_yvm3y"]
 [ext_resource type="Texture2D" uid="uid://c8dkutjutk3w5" path="res://Assets/Characters/Kunoichi/Attack_2.png" id="2_f5qb5"]
 [ext_resource type="Texture2D" uid="uid://c16niwkh4pgbj" path="res://Assets/Characters/Kunoichi/Jump.png" id="3_5oxrn"]
@@ -581,14 +581,14 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w10re"]
 _data = {
-"Attack1": SubResource("Animation_aunhx"),
-"Attack2": SubResource("Animation_lcoxb"),
-"Fall": SubResource("Animation_nv3vl"),
-"Idle": SubResource("Animation_cgdnf"),
-"Jump": SubResource("Animation_cjdfa"),
-"Pain": SubResource("Animation_yo1i3"),
-"RESET": SubResource("Animation_fm61a"),
-"Walk": SubResource("Animation_bf0xm")
+&"Attack1": SubResource("Animation_aunhx"),
+&"Attack2": SubResource("Animation_lcoxb"),
+&"Fall": SubResource("Animation_nv3vl"),
+&"Idle": SubResource("Animation_cgdnf"),
+&"Jump": SubResource("Animation_cjdfa"),
+&"Pain": SubResource("Animation_yo1i3"),
+&"RESET": SubResource("Animation_fm61a"),
+&"Walk": SubResource("Animation_bf0xm")
 }
 
 [node name="Rat" type="CharacterBody2D"]
@@ -605,5 +605,5 @@ shape = SubResource("CapsuleShape2D_f47nf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_w10re")
+&"": SubResource("AnimationLibrary_w10re")
 }

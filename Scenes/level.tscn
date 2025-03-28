@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://romi488mv8xi"]
 
 [ext_resource type="PackedScene" uid="uid://b1n4s4strtkcn" path="res://Scenes/background scenes/woodland_meeting.tscn" id="3_q87w6"]
-[ext_resource type="Script" path="res://Scripts/camera.gd" id="4_7bu5b"]
-[ext_resource type="Script" path="res://Scripts/hurt_box.gd" id="4_ph1nf"]
+[ext_resource type="Script" uid="uid://bsrppy3ficx11" path="res://Scripts/camera.gd" id="4_7bu5b"]
+[ext_resource type="Script" uid="uid://bddm6xbtp3jok" path="res://Scripts/hurt_box.gd" id="4_ph1nf"]
 [ext_resource type="PackedScene" uid="uid://dubpp44qd45c4" path="res://Scenes/kitsune.tscn" id="8_qko44"]
 [ext_resource type="PackedScene" uid="uid://c4emn3307xngy" path="res://Scenes/pause_menu.tscn" id="9_44oyg"]
 

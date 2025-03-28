@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://c4emn3307xngy"]
 
-[ext_resource type="Script" path="res://Scripts/Menu scripts/pause_menu.gd" id="1_ly2e1"]
-[ext_resource type="Shader" path="res://Scripts/pause_menu.gdshader" id="2_0odea"]
+[ext_resource type="Script" uid="uid://e0g4q55bedx1" path="res://Scripts/Menu scripts/pause_menu.gd" id="1_ly2e1"]
+[ext_resource type="Shader" uid="uid://ceilobbhaolch" path="res://Scripts/pause_menu.gdshader" id="2_0odea"]
 [ext_resource type="FontFile" uid="uid://ijb6expjt7ir" path="res://Assets/upheavtt.ttf" id="3_ggyr1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_82p6g"]
@@ -140,8 +140,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a5t0w"]
 _data = {
-"RESET": SubResource("Animation_cit2j"),
-"blur": SubResource("Animation_5mk4f")
+&"RESET": SubResource("Animation_cit2j"),
+&"blur": SubResource("Animation_5mk4f")
 }
 
 [node name="PauseMenu" type="Control"]
@@ -210,7 +210,7 @@ text = "Quit
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_a5t0w")
+&"": SubResource("AnimationLibrary_a5t0w")
 }
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]

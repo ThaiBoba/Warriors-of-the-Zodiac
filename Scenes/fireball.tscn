@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dkkvbwufmqjc5"]
 
-[ext_resource type="Script" path="res://Scripts/fireball.gd" id="1_5u3do"]
+[ext_resource type="Script" uid="uid://c2088my2h8jsl" path="res://Scripts/fireball.gd" id="1_5u3do"]
 [ext_resource type="Texture2D" uid="uid://tjmlk7a50d58" path="res://Assets/Characters/Kitsune/Fire_2.png" id="1_uepev"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cs6b0"]

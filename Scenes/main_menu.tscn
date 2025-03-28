@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cfx7146mhhgj6"]
 
-[ext_resource type="Script" path="res://Scripts/Menu scripts/main_menu.gd" id="1_xulj3"]
+[ext_resource type="Script" uid="uid://khw56765uy36" path="res://Scripts/Menu scripts/main_menu.gd" id="1_xulj3"]
 [ext_resource type="Texture2D" uid="uid://de5pad6cb3w1p" path="res://Assets/Background/8/2304x1296.png" id="2_4mx72"]
 [ext_resource type="FontFile" uid="uid://b61xlpinr5u7a" path="res://Assets/04B_30__.TTF" id="3_wfbg3"]
 [ext_resource type="AudioStream" uid="uid://bnddlibcdclel" path="res://Assets/Music/gong-xi-fa-cai-chinese-new-year-music-280691.mp3" id="4_jku5y"]
@@ -82,9 +82,9 @@ theme_override_constants/separation = 10
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_wfbg3")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a6vxd")
@@ -97,9 +97,9 @@ text = "Start Game"
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_wfbg3")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a6vxd")
@@ -113,9 +113,9 @@ text = "Settings
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_wfbg3")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a6vxd")
@@ -141,6 +141,16 @@ theme_override_fonts/font = ExtResource("3_wfbg3")
 theme_override_font_sizes/font_size = 70
 text = "Warriors of the Zodiac"
 horizontal_alignment = 1
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Node" type="Node" parent="Node"]
+
+[node name="Control" type="Control" parent="Node/Node"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]
