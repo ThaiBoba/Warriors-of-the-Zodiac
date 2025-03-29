@@ -1,32 +1,22 @@
-[gd_scene load_steps=71 format=3 uid="uid://dubpp44qd45c4"]
+[gd_scene load_steps=75 format=3 uid="uid://dubpp44qd45c4"]
 
-[ext_resource type="Script" uid="uid://dydrnwfjogdh2" path="res://Scripts/State Scripts/player.gd" id="1_gkh2o"]
+[ext_resource type="Script" path="res://Scripts/State Scripts/player.gd" id="1_gkh2o"]
 [ext_resource type="Texture2D" uid="uid://d4ib1tstiqeo6" path="res://Assets/Characters/Kitsune/Idle.png" id="1_l3beo"]
 [ext_resource type="Texture2D" uid="uid://83racgrspq55" path="res://Assets/Characters/Kitsune/Attack_1.png" id="2_jvjbb"]
 [ext_resource type="Texture2D" uid="uid://f6ryqkrnsuns" path="res://Assets/Characters/Kitsune/Jump.png" id="2_qrs50"]
 [ext_resource type="Texture2D" uid="uid://dxjekvl0dclot" path="res://Assets/Characters/Kitsune/Walk.png" id="3_4uwlw"]
 [ext_resource type="Texture2D" uid="uid://deanvqkn1a0lu" path="res://Assets/Characters/Kitsune/Attack_3.png" id="3_r6qwr"]
-[ext_resource type="Script" uid="uid://dfx7s6su8ulgh" path="res://Scripts/State Scripts/state_machine.gd" id="5_rf1ct"]
+[ext_resource type="Script" path="res://Scripts/State Scripts/state_machine.gd" id="5_rf1ct"]
 [ext_resource type="Texture2D" uid="uid://1h005s0y0n25" path="res://Assets/Characters/Kitsune/Hurt.png" id="5_ti0fx"]
-<<<<<<< Updated upstream
-[ext_resource type="Script" uid="uid://5rx8k1ehsj77" path="res://Scripts/State Scripts/idle.gd" id="6_8tm5q"]
-[ext_resource type="Script" uid="uid://b4m3jg33egdwn" path="res://Scripts/State Scripts/walk.gd" id="7_1vmoy"]
-[ext_resource type="Script" uid="uid://5wyygshvfjos" path="res://Scripts/State Scripts/jump.gd" id="9_vb3xs"]
-[ext_resource type="Script" uid="uid://2hg2iqk4gupf" path="res://Scripts/State Scripts/fall.gd" id="10_1otfm"]
-[ext_resource type="Script" uid="uid://0c7meslly0y8" path="res://Scripts/State Scripts/attack_1.gd" id="12_mtu72"]
-[ext_resource type="Script" uid="uid://dtbqftbdf4llp" path="res://Scripts/State Scripts/attack_2.gd" id="13_1yikn"]
-[ext_resource type="Script" uid="uid://0051srgqr0bm" path="res://Scripts/hit_box.gd" id="13_tni2c"]
-[ext_resource type="Script" uid="uid://bavadghytrreo" path="res://Scripts/State Scripts/player_pain_state.gd" id="16_u2uuu"]
-[ext_resource type="Script" uid="uid://wum0fy0ouchv" path="res://Scripts/State Scripts/player_hurt_box.gd" id="17_q5j35"]
-=======
 [ext_resource type="Script" path="res://Scripts/State Scripts/idle.gd" id="6_8tm5q"]
 [ext_resource type="Script" path="res://Scripts/State Scripts/walk.gd" id="7_1vmoy"]
 [ext_resource type="Script" path="res://Scripts/State Scripts/jump.gd" id="9_vb3xs"]
 [ext_resource type="Script" path="res://Scripts/State Scripts/fall.gd" id="10_1otfm"]
 [ext_resource type="Script" path="res://Scripts/State Scripts/attack_1.gd" id="12_mtu72"]
 [ext_resource type="Script" path="res://Scripts/State Scripts/attack_2.gd" id="13_1yikn"]
+[ext_resource type="Script" path="res://Scripts/hit_box.gd" id="13_tni2c"]
 [ext_resource type="Script" path="res://Scripts/State Scripts/player_pain_state.gd" id="16_u2uuu"]
->>>>>>> Stashed changes
+[ext_resource type="Script" path="res://Scripts/State Scripts/player_hurt_box.gd" id="17_q5j35"]
 [ext_resource type="PackedScene" uid="uid://cbmnvxkvhf4mt" path="res://HealthBar.tscn" id="18_phtg2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rbef5"]
@@ -396,6 +386,32 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("State Machine/attack1/HitBox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("State Machine/attack1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"add_game_juice"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_nlb8g"]
 resource_name = "Attack2"
@@ -569,6 +585,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("State Machine/attack1/HitBox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_wc85c"]
 resource_name = "Walk"
@@ -602,18 +630,24 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v2d7b"]
 _data = {
-&"Attack1": SubResource("Animation_hnvjr"),
-&"Attack2": SubResource("Animation_nlb8g"),
-&"Fall": SubResource("Animation_l6m8i"),
-&"Idle": SubResource("Animation_n8blf"),
-&"Jump": SubResource("Animation_kn4ne"),
-&"Pain": SubResource("Animation_m02wh"),
-&"RESET": SubResource("Animation_oumen"),
-&"Walk": SubResource("Animation_wc85c")
+"Attack1": SubResource("Animation_hnvjr"),
+"Attack2": SubResource("Animation_nlb8g"),
+"Fall": SubResource("Animation_l6m8i"),
+"Idle": SubResource("Animation_n8blf"),
+"Jump": SubResource("Animation_kn4ne"),
+"Pain": SubResource("Animation_m02wh"),
+"RESET": SubResource("Animation_oumen"),
+"Walk": SubResource("Animation_wc85c")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6cnwu"]
 height = 64.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of5p8"]
+size = Vector2(36, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2x0ho"]
+size = Vector2(17, 62.5)
 
 [node name="Kitsune" type="CharacterBody2D" groups=["Kitsune"]]
 position = Vector2(169, 246)
@@ -625,7 +659,7 @@ animation = &"idle"
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_v2d7b")
+"": SubResource("AnimationLibrary_v2d7b")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -692,6 +726,15 @@ attack1_state = NodePath(".")
 attack2_state = NodePath("../attack2")
 pain_state = NodePath("../pain")
 
+[node name="HitBox" type="Area2D" parent="State Machine/attack1"]
+script = ExtResource("13_tni2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="State Machine/attack1/HitBox"]
+position = Vector2(37, 30)
+shape = SubResource("RectangleShape2D_of5p8")
+disabled = true
+debug_color = Color(0.938436, 1.12626e-05, 0.623704, 0.42)
+
 [node name="attack2" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
 script = ExtResource("13_1yikn")
 idle_state = NodePath("../idle")
@@ -711,3 +754,11 @@ fall_state = NodePath("../fall")
 attack1_state = NodePath("../attack1")
 attack2_state = NodePath("../attack2")
 pain_state = NodePath(".")
+
+[node name="HurtBox" type="Area2D" parent="State Machine/pain"]
+script = ExtResource("17_q5j35")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="State Machine/pain/HurtBox"]
+position = Vector2(-0.5, 32.25)
+shape = SubResource("RectangleShape2D_2x0ho")
+debug_color = Color(0.999496, 0.0199766, 1.15514e-06, 0.42)

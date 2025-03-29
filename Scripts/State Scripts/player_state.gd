@@ -1,7 +1,7 @@
 class_name PlayerState
 extends State
 
-@onready var player: Player = get_tree().get_first_node_in_group("Kitsune") 
+@onready var player: Player = get_tree().get_first_node_in_group("Rat") 
 @onready var camera: Camera = get_tree().get_first_node_in_group("Camera") 
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity", -9.8)

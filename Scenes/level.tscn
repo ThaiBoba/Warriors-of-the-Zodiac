@@ -1,8 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://romi488mv8xi"]
+[gd_scene load_steps=9 format=3 uid="uid://romi488mv8xi"]
 
 [ext_resource type="PackedScene" uid="uid://b1n4s4strtkcn" path="res://Scenes/background scenes/woodland_meeting.tscn" id="3_q87w6"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://bsrppy3ficx11" path="res://Scripts/camera.gd" id="4_7bu5b"]
 [ext_resource type="Script" uid="uid://bddm6xbtp3jok" path="res://Scripts/hurt_box.gd" id="4_ph1nf"]
+=======
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="4_7bu5b"]
+[ext_resource type="Script" path="res://Scripts/hurt_box.gd" id="4_ph1nf"]
+[ext_resource type="PackedScene" uid="uid://4oshoh7h3yrm" path="res://rat.tscn" id="5_e5ku2"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://dubpp44qd45c4" path="res://Scenes/kitsune.tscn" id="8_qko44"]
 [ext_resource type="PackedScene" uid="uid://c4emn3307xngy" path="res://Scenes/pause_menu.tscn" id="9_44oyg"]
 
@@ -13,9 +19,6 @@ distance = -132.0
 size = Vector2(52, 139)
 
 [node name="Level" type="Node2D"]
-
-[node name="kitsune" parent="." instance=ExtResource("8_qko44")]
-position = Vector2(-257, 63)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -43,3 +46,9 @@ script = ExtResource("4_ph1nf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(59, 61)
 shape = SubResource("RectangleShape2D_hil0t")
+
+[node name="Rat" parent="." instance=ExtResource("5_e5ku2")]
+position = Vector2(-469, -125)
+
+[node name="Kitsune" parent="." instance=ExtResource("8_qko44")]
+position = Vector2(-77, 57)

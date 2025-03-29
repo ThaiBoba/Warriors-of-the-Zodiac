@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://4oshoh7h3yrm"]
+[gd_scene load_steps=70 format=3 uid="uid://4oshoh7h3yrm"]
 
 [ext_resource type="Texture2D" uid="uid://cevjup2qvy2hy" path="res://Assets/Characters/Kunoichi/Attack_1.png" id="1_iymnf"]
 [ext_resource type="Script" uid="uid://dydrnwfjogdh2" path="res://Scripts/State Scripts/player.gd" id="1_smybj"]
@@ -7,6 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://c16niwkh4pgbj" path="res://Assets/Characters/Kunoichi/Jump.png" id="3_5oxrn"]
 [ext_resource type="Texture2D" uid="uid://p3ynbpwpm5v7" path="res://Assets/Characters/Kunoichi/Hurt.png" id="4_pkyox"]
 [ext_resource type="Texture2D" uid="uid://dphbrht5vdl11" path="res://Assets/Characters/Kunoichi/Walk.png" id="6_qn56t"]
+[ext_resource type="Script" path="res://Scripts/State Scripts/state_machine.gd" id="8_d26lm"]
+[ext_resource type="Script" path="res://Scripts/State Scripts/idle.gd" id="9_dgb30"]
+[ext_resource type="Script" path="res://Scripts/State Scripts/walk.gd" id="10_siubo"]
+[ext_resource type="Script" path="res://Scripts/State Scripts/jump.gd" id="11_72rmh"]
+[ext_resource type="Script" path="res://Scripts/State Scripts/fall.gd" id="12_8vxsq"]
+[ext_resource type="Script" path="res://Scripts/State Scripts/attack_1.gd" id="13_b1unu"]
+[ext_resource type="Script" path="res://Scripts/State Scripts/attack_2.gd" id="15_g7c47"]
+[ext_resource type="Script" path="res://Scripts/State Scripts/player_pain_state.gd" id="16_k8bm3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2kx3"]
 atlas = ExtResource("1_iymnf")
@@ -591,7 +599,7 @@ _data = {
 &"Walk": SubResource("Animation_bf0xm")
 }
 
-[node name="Rat" type="CharacterBody2D"]
+[node name="Rat" type="CharacterBody2D" groups=["Rat"]]
 script = ExtResource("1_smybj")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -603,7 +611,81 @@ animation = &"idle"
 position = Vector2(295, 218)
 shape = SubResource("CapsuleShape2D_f47nf")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_w10re")
 }
+
+[node name="State Machine" type="Node2D" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("8_d26lm")
+starting_state = NodePath("idle")
+
+[node name="idle" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
+script = ExtResource("9_dgb30")
+idle_state = NodePath(".")
+walk_state = NodePath("../walk")
+jump_state = NodePath("../jump")
+fall_state = NodePath("../fall")
+attack1_state = NodePath("../attack1")
+attack2_state = NodePath("../attack2")
+pain_state = NodePath("../pain")
+
+[node name="walk" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
+script = ExtResource("10_siubo")
+idle_state = NodePath("../idle")
+walk_state = NodePath(".")
+jump_state = NodePath("../jump")
+fall_state = NodePath("../fall")
+attack1_state = NodePath("../attack1")
+attack2_state = NodePath("../attack2")
+pain_state = NodePath("../pain")
+
+[node name="jump" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
+script = ExtResource("11_72rmh")
+idle_state = NodePath("../idle")
+walk_state = NodePath("../walk")
+jump_state = NodePath(".")
+fall_state = NodePath("../fall")
+attack1_state = NodePath("../attack1")
+attack2_state = NodePath("../attack2")
+pain_state = NodePath("../pain")
+
+[node name="fall" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
+script = ExtResource("12_8vxsq")
+idle_state = NodePath("../idle")
+walk_state = NodePath("../walk")
+jump_state = NodePath("../jump")
+fall_state = NodePath(".")
+attack1_state = NodePath("../attack1")
+attack2_state = NodePath("../attack2")
+pain_state = NodePath("../pain")
+
+[node name="attack1" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
+script = ExtResource("13_b1unu")
+idle_state = NodePath("../idle")
+walk_state = NodePath("../walk")
+jump_state = NodePath("../jump")
+fall_state = NodePath("../fall")
+attack1_state = NodePath(".")
+attack2_state = NodePath("../attack2")
+pain_state = NodePath("../pain")
+
+[node name="attack2" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
+script = ExtResource("15_g7c47")
+idle_state = NodePath("../idle")
+walk_state = NodePath("../walk")
+jump_state = NodePath("../jump")
+fall_state = NodePath("../fall")
+attack1_state = NodePath("../attack1")
+attack2_state = NodePath(".")
+pain_state = NodePath("../pain")
+
+[node name="pain" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
+script = ExtResource("16_k8bm3")
+idle_state = NodePath("../idle")
+walk_state = NodePath("../walk")
+jump_state = NodePath("../jump")
+fall_state = NodePath("../fall")
+attack1_state = NodePath("../attack1")
+attack2_state = NodePath("../attack2")
+pain_state = NodePath(".")
