@@ -1,0 +1,130 @@
+[gd_scene load_steps=16 format=3 uid="uid://dubpp44qd45c4"]
+
+[ext_resource type="Script" uid="uid://dydrnwfjogdh2" path="res://Scripts/State Scripts/player.gd" id="1_gkh2o"]
+[ext_resource type="Script" uid="uid://dfx7s6su8ulgh" path="res://Scripts/State Scripts/state_machine.gd" id="5_rf1ct"]
+[ext_resource type="Script" uid="uid://5rx8k1ehsj77" path="res://Scripts/State Scripts/idle.gd" id="6_8tm5q"]
+[ext_resource type="Script" uid="uid://b4m3jg33egdwn" path="res://Scripts/State Scripts/walk.gd" id="7_1vmoy"]
+[ext_resource type="Script" uid="uid://5wyygshvfjos" path="res://Scripts/State Scripts/jump.gd" id="9_vb3xs"]
+[ext_resource type="Script" uid="uid://2hg2iqk4gupf" path="res://Scripts/State Scripts/fall.gd" id="10_1otfm"]
+[ext_resource type="Script" uid="uid://0c7meslly0y8" path="res://Scripts/State Scripts/attack_1.gd" id="12_mtu72"]
+[ext_resource type="Script" uid="uid://dtbqftbdf4llp" path="res://Scripts/State Scripts/attack_2.gd" id="13_1yikn"]
+[ext_resource type="Script" uid="uid://0051srgqr0bm" path="res://Scripts/hit_box.gd" id="13_tni2c"]
+[ext_resource type="Script" uid="uid://bavadghytrreo" path="res://Scripts/State Scripts/player_pain_state.gd" id="16_u2uuu"]
+[ext_resource type="Script" uid="uid://wum0fy0ouchv" path="res://Scripts/State Scripts/player_hurt_box.gd" id="17_q5j35"]
+[ext_resource type="PackedScene" uid="uid://cbmnvxkvhf4mt" path="res://HealthBar.tscn" id="18_phtg2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6cnwu"]
+height = 64.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of5p8"]
+size = Vector2(36, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2x0ho"]
+size = Vector2(17, 62.5)
+
+[node name="Player" type="CharacterBody2D" groups=["Kitsune"]]
+position = Vector2(169, 246)
+script = ExtResource("1_gkh2o")
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 30)
+shape = SubResource("CapsuleShape2D_6cnwu")
+
+[node name="HealthBar" parent="." instance=ExtResource("18_phtg2")]
+offset_left = -42.0
+offset_top = -222.0
+offset_right = 250.0
+offset_bottom = -212.0
+
+[node name="State Machine" type="Node2D" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("5_rf1ct")
+starting_state = NodePath("idle")
+
+[node name="idle" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
+script = ExtResource("6_8tm5q")
+idle_state = NodePath(".")
+walk_state = NodePath("../walk")
+jump_state = NodePath("../jump")
+fall_state = NodePath("../fall")
+attack1_state = NodePath("../attack1")
+attack2_state = NodePath("../attack2")
+pain_state = NodePath("../pain")
+
+[node name="walk" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
+script = ExtResource("7_1vmoy")
+idle_state = NodePath("../idle")
+walk_state = NodePath(".")
+jump_state = NodePath("../jump")
+fall_state = NodePath("../fall")
+attack1_state = NodePath("../attack1")
+attack2_state = NodePath("../attack2")
+pain_state = NodePath("../pain")
+
+[node name="jump" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
+script = ExtResource("9_vb3xs")
+idle_state = NodePath("../idle")
+walk_state = NodePath("../walk")
+jump_state = NodePath(".")
+fall_state = NodePath("../fall")
+attack1_state = NodePath("../attack1")
+attack2_state = NodePath("../attack2")
+pain_state = NodePath("../pain")
+
+[node name="fall" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
+script = ExtResource("10_1otfm")
+idle_state = NodePath("../idle")
+walk_state = NodePath("../walk")
+jump_state = NodePath("../jump")
+fall_state = NodePath(".")
+attack1_state = NodePath("../attack1")
+attack2_state = NodePath("../attack2")
+pain_state = NodePath("../pain")
+
+[node name="attack1" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
+script = ExtResource("12_mtu72")
+idle_state = NodePath("../idle")
+walk_state = NodePath("../walk")
+jump_state = NodePath("../jump")
+fall_state = NodePath("../fall")
+attack1_state = NodePath(".")
+attack2_state = NodePath("../attack2")
+pain_state = NodePath("../pain")
+
+[node name="HitBox" type="Area2D" parent="State Machine/attack1"]
+script = ExtResource("13_tni2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="State Machine/attack1/HitBox"]
+position = Vector2(37, 30)
+shape = SubResource("RectangleShape2D_of5p8")
+disabled = true
+debug_color = Color(0.938436, 1.12626e-05, 0.623704, 0.42)
+
+[node name="attack2" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
+script = ExtResource("13_1yikn")
+idle_state = NodePath("../idle")
+walk_state = NodePath("../walk")
+jump_state = NodePath("../jump")
+fall_state = NodePath("../fall")
+attack1_state = NodePath("../attack1")
+attack2_state = NodePath(".")
+pain_state = NodePath("../pain")
+
+[node name="pain" type="Node2D" parent="State Machine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state", "attack1_state", "attack2_state", "pain_state")]
+script = ExtResource("16_u2uuu")
+idle_state = NodePath("../idle")
+walk_state = NodePath("../walk")
+jump_state = NodePath("../jump")
+fall_state = NodePath("../fall")
+attack1_state = NodePath("../attack1")
+attack2_state = NodePath("../attack2")
+pain_state = NodePath(".")
+
+[node name="HurtBox" type="Area2D" parent="State Machine/pain"]
+script = ExtResource("17_q5j35")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="State Machine/pain/HurtBox"]
+position = Vector2(-0.5, 32.25)
+shape = SubResource("RectangleShape2D_2x0ho")
+debug_color = Color(0.999496, 0.0199766, 1.15514e-06, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

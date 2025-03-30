@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://romi488mv8xi"]
+
+[ext_resource type="Script" uid="uid://m20iro8v8vd1" path="res://Scenes/level.gd" id="1_i4h81"]
+[ext_resource type="PackedScene" uid="uid://b1n4s4strtkcn" path="res://Scenes/background scenes/woodland_meeting.tscn" id="3_q87w6"]
+[ext_resource type="Script" uid="uid://bsrppy3ficx11" path="res://Scripts/camera.gd" id="4_7bu5b"]
+[ext_resource type="Script" uid="uid://bddm6xbtp3jok" path="res://Scripts/hurt_box.gd" id="4_ph1nf"]
+[ext_resource type="PackedScene" uid="uid://tyqhhrl58thg" path="res://Scenes/game_manager.tscn" id="6_n1rqc"]
+[ext_resource type="PackedScene" uid="uid://c4emn3307xngy" path="res://Scenes/pause_menu.tscn" id="9_44oyg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y33hk"]
+distance = -132.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hil0t"]
+size = Vector2(52, 139)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_i4h81")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_44oyg")]
+offset_left = 191.0
+offset_top = 272.0
+offset_right = 191.0
+offset_bottom = 272.0
+
+[node name="Woodland Meeting" parent="." instance=ExtResource("3_q87w6")]
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
+zoom = Vector2(2, 2)
+script = ExtResource("4_7bu5b")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_y33hk")
+
+[node name="HurtBox" type="Area2D" parent="."]
+monitorable = false
+script = ExtResource("4_ph1nf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(59, 61)
+shape = SubResource("RectangleShape2D_hil0t")
+
+[node name="GameManager" parent="." instance=ExtResource("6_n1rqc")]
