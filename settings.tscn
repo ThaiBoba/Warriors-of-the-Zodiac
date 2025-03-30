@@ -1,0 +1,159 @@
+[gd_scene load_steps=9 format=3 uid="uid://cu2lw5dsglkku"]
+
+[ext_resource type="Script" path="res://Scripts/settings.gd" id="1_ewhdh"]
+[ext_resource type="FontFile" path="res://Assets/upheavtt.ttf" id="2_fqygq"]
+[ext_resource type="AudioStream" path="res://Assets/Music/his-touch-13032.mp3" id="3_ad3q1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c41y8"]
+bg_color = Color(0.139219, 0.266425, 0.382244, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4s2mc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psfqd"]
+bg_color = Color(0.395371, 0.501934, 0.726286, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkld6"]
+bg_color = Color(0.293778, 0.391832, 0.602192, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ofr2"]
+bg_color = Color(0.573703, 0.663914, 0.848646, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ewhdh")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c41y8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -60.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="back to game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fqygq")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4s2mc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_psfqd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pkld6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ofr2")
+keep_pressed_outside = true
+text = "Back To Game
+"
+
+[node name="back to main menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fqygq")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4s2mc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_psfqd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pkld6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ofr2")
+keep_pressed_outside = true
+text = "Back To Main Menu
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fqygq")
+theme_override_font_sizes/font_size = 20
+text = "Volume:
+"
+
+[node name="volume" type="HSlider" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fqygq")
+theme_override_font_sizes/font_size = 20
+text = "Mute:"
+
+[node name="mute" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Resolution" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fqygq")
+theme_override_font_sizes/font_size = 20
+text = "Resolution:"
+
+[node name="resolutions" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+selected = 2
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ad3q1")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/back to game" to="." method="_on_backmainmenu_pressed"]
+[connection signal="pressed" from="VBoxContainer/back to main menu" to="." method="_on_backmainmenu_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/volume" to="." method="_on_volume_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/mute" to="." method="_on_mute_pressed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/mute" to="." method="_on_mute_toggled"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/resolutions" to="." method="_on_resolutions_item_selected"]

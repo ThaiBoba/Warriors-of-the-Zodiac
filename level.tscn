@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://b6354ya31q5o0"]
+
+[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="1_pmrvi"]
+[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="2_72r6i"]
+[ext_resource type="Texture2D" path="res://Assets/Background/4/1.png" id="3_2nto3"]
+[ext_resource type="Texture2D" path="res://Assets/Background/4/2.png" id="4_1ol0h"]
+[ext_resource type="Texture2D" path="res://Assets/Background/4/3.png" id="5_6uith"]
+[ext_resource type="Texture2D" path="res://Assets/Background/4/4.png" id="6_xwquv"]
+[ext_resource type="Texture2D" path="res://Assets/Background/4/5.png" id="7_n315c"]
+[ext_resource type="Texture2D" path="res://Assets/Background/4/6.png" id="8_x100f"]
+[ext_resource type="Texture2D" path="res://Assets/Background/4/7.png" id="9_qfn75"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y33hk"]
+distance = -132.0
+
+[node name="Level" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_pmrvi")]
+position = Vector2(-280, 47)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_72r6i")]
+
+[node name="Woodland Meeting" type="ParallaxBackground" parent="."]
+
+[node name="Layer1" type="ParallaxLayer" parent="Woodland Meeting"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Woodland Meeting/Layer1"]
+texture = ExtResource("3_2nto3")
+
+[node name="Layer2" type="ParallaxLayer" parent="Woodland Meeting"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Woodland Meeting/Layer2"]
+texture = ExtResource("4_1ol0h")
+
+[node name="Layer3" type="ParallaxLayer" parent="Woodland Meeting"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Woodland Meeting/Layer3"]
+texture = ExtResource("5_6uith")
+
+[node name="Layer4" type="ParallaxLayer" parent="Woodland Meeting"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Woodland Meeting/Layer4"]
+texture = ExtResource("6_xwquv")
+
+[node name="Layer5" type="ParallaxLayer" parent="Woodland Meeting"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Woodland Meeting/Layer5"]
+texture = ExtResource("7_n315c")
+
+[node name="Layer6" type="ParallaxLayer" parent="Woodland Meeting"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Woodland Meeting/Layer6"]
+texture = ExtResource("8_x100f")
+
+[node name="Layer7" type="ParallaxLayer" parent="Woodland Meeting"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Woodland Meeting/Layer7"]
+position = Vector2(-1.03116e-05, 0)
+scale = Vector2(1.11111, 1.11111)
+texture = ExtResource("9_qfn75")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_y33hk")
